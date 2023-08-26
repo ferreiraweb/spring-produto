@@ -49,7 +49,7 @@ public class CategoriaServiceTest {
 
         /* then */
         assertNotNull(dto);
-        assertEquals(categoria.getNome(), dto.nome());
+        assertEquals(categoria.getNome(), dto.nome(), () -> "Nome retornado não combina");
     }
 
     @Test
