@@ -6,6 +6,10 @@ public class Fornecedores
     private int id;
     private String nome;
 
+    private String Localidade;
+
+    private String Telefone;
+
     public Fornecedores(String nome) {
         this.nome = nome;
     }
