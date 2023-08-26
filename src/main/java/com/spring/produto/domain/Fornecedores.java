@@ -1,11 +1,12 @@
-package com.spring.produto.dtos;
+package com.spring.produto.domain;
 
-public class Fornecedor {
+public class Fornecedores
+{
 
     private int id;
     private String nome;
 
-    public Fornecedor(String nome) {
+    public Fornecedores(String nome) {
         this.nome = nome;
     }
 
