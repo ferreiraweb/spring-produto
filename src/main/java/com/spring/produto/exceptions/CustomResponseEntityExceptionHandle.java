@@ -19,6 +19,7 @@ public class CustomResponseEntityExceptionHandle extends ResponseEntityException
 
         var statusError = HttpStatus.INTERNAL_SERVER_ERROR;
 
+
         return ResponseEntity.status(statusError)
                 .body(getCustomResponseMessage(ex, statusError));
     }

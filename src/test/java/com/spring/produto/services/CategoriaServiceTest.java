@@ -12,6 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -106,6 +107,30 @@ public class CategoriaServiceTest {
         assertThrows(CategoriaNotFoundException.class, () ->
                         service.update(categoria.getId(), CategoriaDto.categoriaToDto(categoria))
                 );
+
+    }
+
+    @Test
+    void nao_deve_retornar_categoria_se_nao_existe() {
+
+        List<Categoria> categorias = new ArrayList<Categoria>();
+
+        categorias.add(new Categoria("Graos"));
+        categorias.add(new Categoria("Frios"));
+        categorias.add(new Categoria("Congelados"));
+        categorias.add(new Categoria("Laticinios"));
+        categorias.add(new Categoria("Carnes"));
+
+
+       Optional<Categoria> findedCategoria =  categorias
+               .stream()
+               .filter(c -> categoria.getNome().toLowerCase().equals("Graos".toLowerCase()))
+               .findFirst();
+
+       assertEquals(true, findedCategoria.isPresent());
+       assertTrue(findedCategoria.isPresent());
+
+
 
     }
 
